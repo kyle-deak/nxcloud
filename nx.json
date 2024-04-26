@@ -1,7 +1,10 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "namedInputs": {
-    "default": ["{projectRoot}/**/*", "sharedGlobals"],
+    "default": [
+      "{projectRoot}/**/*",
+      "sharedGlobals"
+    ],
     "production": [
       "default",
       "!{projectRoot}/.eslintrc.json",
@@ -20,12 +23,22 @@
   "targetDefaults": {
     "@angular-devkit/build-angular:application": {
       "cache": true,
-      "dependsOn": ["^build"],
-      "inputs": ["production", "^production"]
+      "dependsOn": [
+        "^build"
+      ],
+      "inputs": [
+        "production",
+        "^production"
+      ]
     },
     "build": {
-      "dependsOn": ["^build"],
-      "inputs": ["production", "^production"],
+      "dependsOn": [
+        "^build"
+      ],
+      "inputs": [
+        "production",
+        "^production"
+      ],
       "cache": true
     },
     "@nx/eslint:lint": {
@@ -39,9 +52,20 @@
     },
     "@nx/jest:jest": {
       "cache": true,
-      "inputs": ["default", "^production", "{workspaceRoot}/jest.preset.js"],
-      "options": { "passWithNoTests": true },
-      "configurations": { "ci": { "ci": true, "codeCoverage": true } }
+      "inputs": [
+        "default",
+        "^production",
+        "{workspaceRoot}/jest.preset.js"
+      ],
+      "options": {
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
     }
   },
   "plugins": [
@@ -54,7 +78,12 @@
         "ciTargetName": "e2e-ci"
       }
     },
-    { "plugin": "@nx/eslint/plugin", "options": { "targetName": "lint" } }
+    {
+      "plugin": "@nx/eslint/plugin",
+      "options": {
+        "targetName": "lint"
+      }
+    }
   ],
   "generators": {
     "@nx/angular:application": {
@@ -63,7 +92,13 @@
       "style": "scss",
       "unitTestRunner": "jest"
     },
-    "@nx/angular:library": { "linter": "eslint", "unitTestRunner": "jest" },
-    "@nx/angular:component": { "style": "css" }
-  }
+    "@nx/angular:library": {
+      "linter": "eslint",
+      "unitTestRunner": "jest"
+    },
+    "@nx/angular:component": {
+      "style": "css"
+    }
+  },
+  "nxCloudAccessToken": "YzlhMzExYTEtODI5My00YjU2LThkMWItODI4NzRhODEyMmM4fHJlYWQtd3JpdGU="
 }
